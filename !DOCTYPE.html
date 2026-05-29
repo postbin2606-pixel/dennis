@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sujana 3D Resume Game</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #007c91, #00c2a8);
+    overflow: hidden;
+    color: white;
+}
+
+/* Floating animation background */
+.background-glow {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
+    animation: floatBg 10s infinite alternate;
+}
+
+@keyframes floatBg {
+    from { transform: translate(-10%, -10%); }
+    to { transform: translate(10%, 10%); }
+}
+
+/* Main container */
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* 3D Card */
+.card {
+    width: 400px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    transform-style: preserve-3d;
+    transition: 0.5s;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.card:hover {
+    transform: rotateY(10deg) rotateX(10deg) scale(1.05);
+}
+
+/* Menu buttons */
+.menu button {
+    width: 100%;
+    margin: 8px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menu button:hover {
+    transform: translateX(10px);
+    background: rgba(255,255,255,0.4);
+}
+
+/* Section box */
+.section {
+    display: none;
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+/* Emoji style */
+.emoji {
+    font-size: 22px;
+    margin-right: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="background-glow"></div>
+
+<div class="container">
+<div class="card">
+
+    <h2>🎮 SUJANA'S 3D RESUME</h2>
+
+    <div class="menu">
+        <button onclick="show('info')">👤 Personal Info</button>
+        <button onclick="show('about')">🧠 About Me</button>
+        <button onclick="show('skills')">💻 Skills</button>
+        <button onclick="show('achievements')">🏆 Achievements</button>
+        <button onclick="show('hobbies')">🎯 Hobbies</button>
+    </div>
+
+    <div id="info" class="section">
+        👤 Name: SUJANA VINNARASI E<br>
+        🎓 Course: BCA<br>
+        🏫 College: DON BOSCO COLLEGE (CO-ED)<br>
+        📅 Academic Year: 2024–27<br>
+        🆔 Roll No: B24287<br>
+        🎂 DOB: 26-06-2007<br>
+        📧 Email: postbin2606@gmail.com<br>
+        📞 Phone: 9047454559
+    </div>
+
+    <div id="about" class="section">
+        🌟 I am Sujana Vinnarasi E from Ulundurpet.<br>
+        Currently pursuing BCA at Don Bosco College, Yelagiri Hills.<br>
+        Completed schooling at Don Bosco Hr. Sec School, Gedilam.
+    </div>
+
+    <div id="skills" class="section">
+        💻 HTML <br>
+        🎨 CSS <br>
+        🐍 Python
+    </div>
+
+    <div id="achievements" class="section">
+        🏆 Hackathon Participation<br>
+        🥇 Coding Contest Ranks<br>
+        👥 Club Memberships<br>
+        🤝 Volunteer Work
+    </div>
+
+    <div id="hobbies" class="section">
+        📚 Reading <br>
+        💃 Dancing <br>
+        🎧 Listening Music
+    </div>
+
+</div>
+</div>
+
+<script>
+function show(id) {
+    let sections = document.querySelectorAll('.section');
+    sections.forEach(sec => sec.style.display = 'none');
+
+    let active = document.getElementById(id);
+    active.style.display = 'block';
+    active.style.transform = "scale(0.8)";
+    
+    setTimeout(() => {
+        active.style.transform = "scale(1)";
+    }, 100);
+}
+</script>
+
+</body>
+</html>
